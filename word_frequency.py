@@ -3,71 +3,49 @@ STOP_WORDS = [
     'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
     'will', 'with'
 ]
-file = one-today.txt
+# file = one-today.txt
 # define the file that the program will be reading
+# this line not necessary. 
+# for reference tried "python3 word_frequency.py one-today.txt" compared to "python3 word_frequency.py praise_song_for_the_day.txt"
+# this is when concept began to sink in and applied to terminal to check each function
 
 
 def print_word_freq(file):
     """Read in `file` and print out the frequency of words in that file."""
     file = open(file)
     text = file.read()
-# file is the one-today.txt used
+    # print(text)
+    # verified text from one-today prints in terminal using python3 word_frequency.py one-today.txt
+    
+    
+    text_formatting = text.lower().replace('.','').replace(',','').replace('!','').replace('?','').replace('-','').replace(':','').split()
+    # print(text_formatting)
+    # this function works for every symbol except for '-'
 
-    removePunctuation = ""
-    letter = [abcdefghijklmnopqrstuvwxyz]
-    # unsure if most efficient method here
-    for letter in text:
-        if letter not in list.removePunctuation:
-            removePunctuation = removePunctuation + letter
-            print(removePunctuation)
-            # attempting to define a list of valid letters A-Z, if a character is not in the list, remove it
+    word_count = []
 
-    lowercase = removePunctuation.lower()
-    split = lowercase.split()
-    print(split)
-    # using lower and split functions
+    for word in text_formatting:
+        if word not in STOP_WORDS:
+            word_count.append(word)
+            # print(word_count)
+    # this function removes stop words defined at top of file.
+    # originally had every function in text_formatting in a new line. 
+    # this appeared to work until adding word count, which printed each individual letter. revised text formatting above.
 
-    # what to use here to begin loop?
-    for text in file
-    text.replace('.', '')
-    text.replace('!', '')
-    text.replace('?', '')
-    text.replace(':', '')
-    # this is a placeholder, want to make a for loop and replace symbols/punctuation with empty string
-    # for my own reference, I'll often do a few lines or functions at a time and test them, then edit accordingly
-    # as in Javascript look at console.log
-    # HTML/CSS classes and ID make bright colors and formatting for each to see what works.
-    # Looking for a similar comparison in Python to edit code.
-
-    # output =[{text in split if not text in STOP_WORDS:]
-    # above line commented out, would that function do the same as below?
-
-    def output = []
-    for text in output
-    if text not in STOP_WORDS:
-        output.append(word)
-        print output
-    # if the text is not in the stop words list, add that word to the output
-
-    frequency = {}
-    for word in output:
-        frequency[word] = frequency.get(word, 0) + 1
-        return frequency
-    # get the frequency of words used in text file, referencing the above output function on 28
-
-    def word_count(str):
-        count = dict()
-        words = str.split()
-
-    for word in words:
-        if word in count:
-            count[word] += 1
+    x = {}
+    for word in word_count:
+        if word not in x.keys():
+            x[word] = 1
         else:
-            count[word] = 1
+            x[word] += 1
+            # print(x)
 
-    return count
-    # word count function works in theory, unsure of where to place it in code
+    sort_text = sorted(x, key=x.get, reverse=True )
+    for num in sort_text:
+        print(num, x[num], '*')
 
+    # able to add asterisk to printed output. unsure of how to add multiple asterisk. 
+    # take valiue of "num" and add asterisk in order of word count
 
 if __name__ == "__main__":
     import argparse

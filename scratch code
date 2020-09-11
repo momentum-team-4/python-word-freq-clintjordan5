@@ -1,0 +1,32 @@
+list of previous ideas/attempts outside of python file to revise
+
+
+    # lowercase = removePunctuation.lower()
+    # split = lowercase.split()
+    
+    combined these functions into one called 'text_formatting' that removes symbols and replaces with empty string
+ 
+
+    frequency = {}
+    for word in output:
+        frequency[word] = frequency.get(word, 0) + 1
+        return frequency
+    # get the frequency of words used in text file, referencing the above output function
+    
+    simplified this using keys
+
+    def word_count(str):
+        count = dict()
+        words = str.split()
+
+    for word in words:
+        if word in count:
+            count[word] += 1
+        else:
+            count[word] = 1
+
+    return count
+    simplified this by using for loop and tested with print in terminal
+
+    # join.filter string.alnum
+    note from class for future reference
