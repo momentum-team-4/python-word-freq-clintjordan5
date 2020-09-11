@@ -18,9 +18,10 @@ def print_word_freq(file):
     # verified text from one-today prints in terminal using python3 word_frequency.py one-today.txt
     
     
-    text_formatting = text.lower().replace('.','').replace(',','').replace('!','').replace('?','').replace('-','').replace(':','').split()
+    text_formatting = text.lower().replace('.','').replace(',','').replace('!','').replace('?','').replace('—','').replace(':','').split()
     # print(text_formatting)
     # this function works for every symbol except for '-'
+    # fixed by copying the actual '-' from the text file. length of '-' is longer than usual keyboard hyphen.
 
     word_count = []
 
@@ -42,10 +43,9 @@ def print_word_freq(file):
 
     sort_text = sorted(x, key=x.get, reverse=True )
     for num in sort_text:
-        print(num, x[num], '*')
+        print(num, x[num], '*' * x[num])
 
-    # able to add asterisk to printed output. unsure of how to add multiple asterisk. 
-    # take valiue of "num" and add asterisk in order of word count
+    # fixed asterisk by mulitplying '*' by the value of number used
 
 if __name__ == "__main__":
     import argparse
